@@ -1,0 +1,19 @@
+{
+  "name": "Webduino",
+  "version": "0.0.1",
+  "description": "A web interface to control the Arduino microcontroler devlopment board",
+  "main": "index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IanAdamBear/webduino"
+  },
+  "author": "Ian Adam Bear",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IanAdamBear/webduino/issues"
+  },
+  "homepage": "https://github.com/IanAdamBear/webduino"
+}
