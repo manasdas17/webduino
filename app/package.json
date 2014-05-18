@@ -4,6 +4,7 @@
   "description": "A web interface to control the Arduino microcontroler devlopment board",
   "main": "index.html",
   "scripts": {
+    "preinstall": "npm install -g napa",
     "test": "node_modules\\.bin\\mocha --reporter spec"
   },
   "repository": {
@@ -31,5 +32,9 @@
       "iphone/latest",
       "android/latest"
     ]
+  },
+  "dependencies": {
+    "express": "*",
+    "napa": "*"
   }
 }
