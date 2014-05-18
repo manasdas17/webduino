@@ -6,10 +6,11 @@ var csshint = require("gulp-csslint");
 var stylish = require("jshint-stylish");
 var sass = require("gulp-sass");
 var connect = require("gulp-connect");
+var uglify = require("gulp-uglify");
 
 
 
-gulp.task("default", ["watch", "connect"], function (){
+gulp.task("default", ["watch", "connect", "uglify"], function (){
 	console.log("Started");
 });
 
@@ -17,10 +18,18 @@ gulp.task("compile:js", ["jshint"], function () {
 	
 	var bundle = browserify("./src/js/app.js").bundle();
 
-	return bundle
+	return bundle	
 		.pipe(source("bundle.js"))
 		.pipe(gulp.dest("./public/assets/js"))
-		.pipe(connect.reload());
+		.pipe(connect.reload());	
+
+});
+
+gulp.task("uglify", function () {
+
+	return gulp.src("./public/assets/js/*.js")
+		.pipe(uglify())
+		.pipe(gulp.dest("./public/assets/js"));
 
 });
 
@@ -49,9 +58,10 @@ gulp.task('html', function () {
 });
 
 gulp.task("watch", ["compile:js", "compile:css"], function () {
-	gulp.watch(["./src/js/**/*.js"], ["compile:js"])
-	gulp.watch(["./src/scss/**/*.scss"], ["compile:css"])
-	gulp.watch(["./public/**/*.html"], ["html"])
+	gulp.watch(["./src/js/**/*.js"], ["compile:js"]);
+	gulp.watch(["./src/scss/**/*.scss"], ["compile:css"]);
+	gulp.watch(["./public/**/*.html"], ["html"]);
+	gulp.watch(["compile:js"], ["uglify"]);
 })
 
 gulp.task("connect", function () {
