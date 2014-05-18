@@ -4,7 +4,7 @@
   "description": "A web interface to control the Arduino microcontroler devlopment board",
   "main": "index.html",
   "scripts": {
-    "test": "test"
+    "test": "node_modules\\.bin\\mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/IanAdamBear/webduino/issues"
   },
-  "homepage": "https://github.com/IanAdamBear/webduino"
+  "homepage": "https://github.com/IanAdamBear/webduino",
+  "napa": {
+    "angular": "angular/bower-angular",
+    "angular-route": "angular/bower-angular-route"
+  }
 }
